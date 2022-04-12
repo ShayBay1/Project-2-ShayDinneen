@@ -7,14 +7,14 @@
     <title>Document</title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
 </head>
+<body>
 <nav>
  <img id="ig" src="https://www.techadvisor.com/cmsdata/features/3688877/how-to-upload-video-to-instagram-from-pc-main2_thumb900_1-1.png" alt="instaslam logo">
  <div class="headline"><h1>Instaslam</h1></div>
 
  <% if (user) { %> 
-    <a href="/logout">LOG OUT</a>
+    <a href="/logout" class="login">LOG OUT&nbsp;<img src="https://img.freepik.com/free-photo/google-logo-realistic-cpu-technology-background-3d_327483-320.jpg"></a>
     <% } else { %> 
         <a href="/auth/google" class="login">LOG IN&nbsp;<img src="https://img.freepik.com/free-photo/google-logo-realistic-cpu-technology-background-3d_327483-320.jpg"></a>
     <% } %> 
 </nav>
-</html>

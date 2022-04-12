@@ -1,44 +1,44 @@
-const passport = require('passport');
-const express = require('express');
-const path = require('path');
-const logger = require('morgan');
-const cookieParser = require('cookie-parser');
+const passport = require("passport");
+const express = require("express");
+const path = require("path");
+const logger = require("morgan");
+const cookieParser = require("cookie-parser");
 // session middleware
-const session = require('express-session');
-const methodOverride = require('method-override');
-const indexRoutes = require('./routes/index');
+const session = require("express-session");
+const methodOverride = require("method-override");
+
 // load the env consts
-require('dotenv').config();
+require("dotenv").config();
 
 // create the Express app
 const app = express();
 
 // connect to the MongoDB with mongoose
-require('./config/database');
+require("./config/database");
 // require routers
-const indexRouter = require('./routes/index');
-const slamsRouter = require('./routes/slams');
+require("./config/passport");
+const indexRouter = require("./routes/index");
+const slamsRouter = require("./routes/slams");
 // configure Passport
-require('./config/passport');
-
-
 
 // view engine setup
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'ejs');
+app.set("views", path.join(__dirname, "views"));
+app.set("view engine", "ejs");
 
-app.use(methodOverride('_method'));
-app.use(express.static(path.join(__dirname, 'public')));
-app.use(logger('dev'));
+app.use(methodOverride("_method"));
+app.use(express.static(path.join(__dirname, "public")));
+app.use(logger("dev"));
 app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 // mount the session cookie
-app.use(session({
-  secret: process.env.SECRET,
-  resave: false,
-  saveUninitialized: true
-}));
+app.use(
+  session({
+    secret: process.env.SECRET,
+    resave: false,
+    saveUninitialized: true,
+  })
+);
 
 app.use(passport.initialize());
 app.use(passport.session());
@@ -50,17 +50,14 @@ app.use(function (req, res, next) {
 });
 
 // add my routers
-app.use('/', indexRouter);
-app.use('/slams', slamsRouter);
-
+app.use("/", indexRouter);
+app.use("/slams", slamsRouter);
 
 // mount all routes with appropriate base paths
-app.use('/', indexRoutes);
-
 
 // invalid request, send 404 page
-app.use(function(req, res) {
-  res.status(404).send('Daves not here man(error function server.js line 63)');
+app.use(function (req, res) {
+  res.status(404).send("Daves not here man(error function server.js line 63)");
 });
 
 module.exports = app;
