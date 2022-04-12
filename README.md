@@ -1,35 +1,32 @@
-# passport-boilerplate
+INSTASLAM! its where people can post a link to hilarious content such as wipeouts, trips, falls, and general slams.
 
+the Wireframe: https://whimsical.com/M7NX27u7VWok6JiopXJfAY
 
-This is your passport boilerplate.
+For this Product I'll be creating a CRUD application that allows users to CREATE a post with a link to a video(if logged in), READ comments on posts, and UPDATE/DELETE a comment. 
 
-## Setup 
+the USER STORY of this web app is going to be very familiar as almost all social media apps are made up of these same CRUD properties. it will be much like the user experience of Instagram
 
-1. Clone the repo
-2. Rename the folder to your Project
-3. Delete the `.git` file, when you are in the root of the file, you can press `ls` and you should see a `.git` file, then go ahead and run `rm -rf .git`
+-Landing/Index page will display posts which will be links to slam footage.
 
+- users will be able to create posts but will be prompted to log in with Google before being able to post.
 
-#### Setup your git repo
-0. Setup your `.env` file and add all the things you need! (look at mongoose movies for reference!)
-1. in the project root `git init`
-2. `git add .` to add all the starter code
-3. `git commit -m "setup boilerplate"` 
-4. go to github and create your github and create a repo (Without a readme or liscense you can add that later!)
-5. copy the remote address
-6. In your terminal add the remote `git remote add origin yourGithubRepo'sAddressGoesHere`
-7. `git pull origin master` If a screen pulls up asking you to do something just press `:q` and then `enter` (thats vim btw :) )
-8. `git push origin master`
+-users will have the option to add comments to any post once loged in which will redirect them to the comment section/page. 
 
-#### Setup your login
+-users will be able to update or delete their comments only when in the comment section of any post.
 
-0. Setup your database connection string
-1. Then Setup Your User Model, 
-2. Follow the steps from the lesson plan to get your Google login credentials for your `.env` file (create the file if you haven't), or you can just copy the ones from earlier if you want to reuse them.
-3. Setup the Code in your config passport 
-4. Setup your callback routes in your `routes/index`
-5. Setup a view and test your login!
+Photos of the users view:
+-
+-
+-
+-
 
-#### Make a commit 
+INSTASLAM is made up of HTML, CSS, javaScript, Nodejs, express, and mongoose.
 
-```git commit -m "setup up oauth and User Model"```
+the link below will direct you to INSTASLAM:
+
+-
+
+down the road id reallu love to cut the middle man and be able to render the videos on site instead of redirecting users to other pages.
+
+Below is a link to the GitHub Repo that includes my HTML, CSS, javaScript:
+https://github.com/ShayBay1/Project-2-ShayDinneen

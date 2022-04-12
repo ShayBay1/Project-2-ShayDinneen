@@ -1,10 +1,10 @@
+const passport = require('passport');
 const express = require('express');
 const path = require('path');
 const logger = require('morgan');
 const cookieParser = require('cookie-parser');
 // session middleware
 const session = require('express-session');
-const passport = require('passport');
 const methodOverride = require('method-override');
 const indexRoutes = require('./routes/index');
 // load the env consts
@@ -15,6 +15,9 @@ const app = express();
 
 // connect to the MongoDB with mongoose
 require('./config/database');
+// require routers
+const indexRouter = require('./routes/index');
+const slamsRouter = require('./routes/slams');
 // configure Passport
 require('./config/passport');
 
@@ -30,7 +33,7 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
-// mount the session middleware
+// mount the session cookie
 app.use(session({
   secret: process.env.SECRET,
   resave: false,
@@ -39,8 +42,6 @@ app.use(session({
 
 app.use(passport.initialize());
 app.use(passport.session());
-
-
 // Add this middleware BELOW passport middleware
 app.use(function (req, res, next) {
   res.locals.user = req.user; // assinging a property to res.locals, makes that said property (user) availiable in every
@@ -48,13 +49,18 @@ app.use(function (req, res, next) {
   next();
 });
 
+// add my routers
+app.use('/', indexRouter);
+app.use('/slams', slamsRouter);
+
+
 // mount all routes with appropriate base paths
 app.use('/', indexRoutes);
 
 
 // invalid request, send 404 page
 app.use(function(req, res) {
-  res.status(404).send('Cant find that!');
+  res.status(404).send('Daves not here man(error function server.js line 63)');
 });
 
 module.exports = app;
