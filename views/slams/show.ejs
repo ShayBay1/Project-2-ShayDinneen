@@ -1,0 +1,9 @@
+<%- include('../partials/header') %>
+
+<form action="/slams/<%= slam._id %>/comments" method="POST">
+    <!-- Be sure name attributes of inputs match the model properties -->
+    <input name="text">
+    <button type="submit">ADD COMMENT</button>
+  </form>
+</body>
+</html>

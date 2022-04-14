@@ -7,12 +7,14 @@
 
 <%}; %>
 <section id="feed">
-    <% slams.forEach(post =>{ %>
-<img src=<%= post.userAvatar %> >
-<p><%= post.userName %> </p>
-<h1> Link: <%= post.link %> </h1>
+    <br>
+    <% slams.forEach(p =>{ %>
+<img src=<%= p.userAvatar %> >
+<p><%= p.userName %> </p>
+<h1> Link: <%= p.link %> </h1>
+<a href="/slams/<%= p._id %>">Comment Section</a> 
     <% }) %> 
-    
+<br>  
 </section>
 </body>
 </html>

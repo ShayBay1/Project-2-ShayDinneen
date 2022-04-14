@@ -35,8 +35,7 @@ height: 70px;
   height: 70px;
 }
 
-element.style {
-}
+
 nav {
   background-color: black;
   height: 70px;
@@ -51,4 +50,20 @@ nav {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
+
+  #feed {
+    display: flex;
+    flex-direction: column;
+    align-content: stretch;
+    justify-content: space-evenly;
+    align-items: baseline;
+}
+
+#addPost{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+body{
+  
 }

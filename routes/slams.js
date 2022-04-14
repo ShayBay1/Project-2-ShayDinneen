@@ -11,7 +11,7 @@ router.get('/new', slamsCtrl.new);
 // POST command for /slams
 router.post('/', slamsCtrl.create);
 // now get the index page that our function in controllers is res.rendering
-router.get('/index', slamsCtrl.index);
-
+router.get('/', slamsCtrl.index);
+router.get('/:id', slamsCtrl.show);
 
 module.exports = router;

@@ -1,21 +1,19 @@
 const Slam = require('../models/Slam');
 const User = require('../models/User');
 
-module.exports = {
-    new: newSlam,
-    create,
-    index,
-    post,
-}
+function show (req, res){
+Slam.findById(req.params.id, function(err, slam){
+    // 
+        res.render('slams/show', {slam, title: 'Slam Details'});
+    });
+  }; 
 
-function post(req, res){
-const slamPost = new Slam(req.body);
-slamPost.save(function(err){
-    if (err) return res.render('/');
-    console.log(slamPost, '<-------this is my Slam Schema');
-    res.redirect('/')
-})
-}
+
+// future function for adding comment to slam post
+// req.body.userId = req.user_id;
+    // req.body.userName = req.user.name;
+    // slam.comments.push(req.body);
+    // comment.save(function(err){
 
 function newSlam(req, res){
     res.render('slams/new');
@@ -31,8 +29,7 @@ function create(req, res){
 if (req.body.link) 
 slamPost.save(function(err){
     if (err) return res.redirect('/');
-    res.redirect('/');
-    
+    res.redirect('/');   
 });
 }
 function index(req, res){
@@ -44,3 +41,9 @@ function index(req, res){
     });
 }
 
+module.exports = {
+    new: newSlam,
+    create,
+    index,
+    show,
+}

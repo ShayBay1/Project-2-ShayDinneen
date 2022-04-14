@@ -52,6 +52,7 @@ app.use(function (req, res, next) {
 // add my routers
 app.use("/", indexRouter);
 app.use("/slams", slamsRouter);
+app.use("/", slamsRouter);
 
 // mount all routes with appropriate base paths
 

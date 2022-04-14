@@ -17,7 +17,6 @@ const commentsSchema = new Schema({
     },
 });
 
-
 const slamSchema = new Schema ({
     userAvatar: {
         type: String,
