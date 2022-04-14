@@ -1,6 +1,11 @@
 <%- include('../partials/header') %>
 
 <form action="/slams/<%= slam._id %>/comments" method="POST">
+    <% slam.forEach(p =>{ %>
+        <img src=<%= p.userAvatar %> >
+        <p><%= p.userName %> </p>
+        <h1> Link: <%= p.link %> </h1>
+        <% }) %> 
     <!-- Be sure name attributes of inputs match the model properties -->
     <input name="text">
     <button type="submit">ADD COMMENT</button>
