@@ -1,5 +1,18 @@
 <%- include('./partials/header') %>
+<% if (user) { %> 
+<form id="addPost" method="POST" action="/">
+    <input type="text" name="link">
+    <button type="submit" value="POST">POST</button>
+</form>
 
-    <h3>you can view other wipeouts, or post a link to youre own wipeouts</h3>
+<%}; %>
+<section id="feed">
+    <% slams.forEach(post =>{ %>
+<img src=<%= post.userAvatar %> >
+<p><%= post.userName %> </p>
+<h1> Link: <%= post.link %> </h1>
+    <% }) %> 
+    
+</section>
 </body>
 </html>

@@ -4,18 +4,31 @@ const Schema = mongoose.Schema;
 
 const commentsSchema = new Schema({
     comment: String,
-    username: {
+    user: {
+        type: Schema.Types.ObjectId, ref: 'User'
+    },
+    userAvatar: {
         type: String,
         ref: 'User',
-    }
-});
-const slamSchema = new Schema ({
+    },
     username: {
         type: String,
         ref: 'User',
     },
+});
+
+
+const slamSchema = new Schema ({
+    userAvatar: {
+        type: String,
+        ref: 'User',
+    },
+    userName: {
+        type: String,
+        ref: 'User',
+    },
     link: String,
-    comments:[commentsSchema]
+    comments:[commentsSchema],
 })
 
 module.exports = mongoose.model('Slam', slamSchema);

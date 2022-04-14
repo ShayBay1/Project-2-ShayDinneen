@@ -1,14 +1,15 @@
 const express = require('express');
 const router = express.Router();
+const slamsCtrl = require('../controllers/slams')
 const passport = require('passport');
 
 // The root route renders index(homepage)
-router.get('/', function(req, res) {
-  res.render('index');
-}); 
-router.post('/', function(req, res){
-// user posts their content link here
-})
+router.get('/', slamsCtrl.index); 
+router.post('/', slamsCtrl.create);
+//  function(req, res){
+// // user posts their content link here
+
+// })
   // in the student demo this was res.redirect('/students'), what do you want?
   // This could be a landing page, or just redirect to your main resource page which you'll have an a tag that makes 
   // a request to `/auth/google` route below
