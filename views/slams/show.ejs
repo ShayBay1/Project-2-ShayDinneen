@@ -11,9 +11,12 @@
     <p><%= c.username %> </p>
     <h1><%= c.comment %> </h1>
         <% }) %> 
+        <!-- i need to be able to delete and exit comments -->
     </section>
     <a href="/">Home Page</a>
     <!-- Be sure and name attributes of inputs to match the model properties -->
-    
+    <form action='/slams/<%=slams._id%>?_method=DELETE' method="POST">
+    <input type="submit">Delete Post</input>
+    </form>
 </body>
 </html>

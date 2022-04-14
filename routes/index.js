@@ -4,8 +4,7 @@ const slamsCtrl = require('../controllers/slams')
 const passport = require('passport');
 
 // The root route renders index(homepage)
-router.get('/', slamsCtrl.index); 
-router.post('/', slamsCtrl.create);
+
 //  function(req, res){
 // // user posts their content link here
 

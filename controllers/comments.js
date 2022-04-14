@@ -20,6 +20,7 @@ function addcomment (req, res) {
 }
 
 
+
 module.exports = {
-  addcomment
+  addcomment,
 }
