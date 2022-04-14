@@ -1,5 +1,6 @@
 <%- include('../partials/header') %>
 <h1><%= title %></h1> 
+<iframe width="560" height="315" src=<%= slams.link %> title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 <form action="/slams/<%= slams._id %>/comments" method="POST">
     <input name="comment">
     <button type="submit">ADD COMMENT</button>

@@ -11,7 +11,7 @@
     <% slams.forEach(p =>{ %>
 <img src=<%= p.userAvatar %> >
 <p><%= p.userName %> </p>
-<h1> Link: <%= p.link %> </h1>
+<iframe width="560" height="315" src=<%= p.link %> title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 <a href="/slams/<%= p._id %>">Comment Section</a> 
     <% }) %> 
 <br>  
