@@ -1,12 +1,6 @@
 const Slam = require('../models/Slam');
 const User = require('../models/User');
 
-function show (req, res){
-Slam.findById(req.params.id, function(err, slam){
-    // 
-        res.render('slams/show', {slam, title: 'Slam Details'});
-    });
-  }; 
 
 
 // future function for adding comment to slam post
@@ -32,6 +26,13 @@ slamPost.save(function(err){
     res.redirect('/');   
 });
 }
+function deleteSlam (req, res){
+    Slam.findOneAndDelete(
+        {_id: req.params.id}, function(err) {
+            res.redirect('/slams')
+        }
+    )
+}
 function index(req, res){
     Slam.find({}, function(err, slams){
         console.log(slams, '<----this is what slams looks like')
@@ -40,10 +41,18 @@ function index(req, res){
         })
     });
 }
+function show (req, res){
+    Slam.findById(req.params.id, function(err, slams){
+        console.log(slams, '<----------helloooo')
+        res.render('slams/show', {slams, title: 'Slam Details'});
+        });
+      }; 
+
 
 module.exports = {
     new: newSlam,
     create,
     index,
     show,
+    deleteSlam,
 }

@@ -13,5 +13,5 @@ router.post('/', slamsCtrl.create);
 // now get the index page that our function in controllers is res.rendering
 router.get('/', slamsCtrl.index);
 router.get('/:id', slamsCtrl.show);
-router.post('/:id', commentsCtrl.comment);
+router.post('/slams/:id/comments', commentsCtrl.addcomment);
 module.exports = router;
