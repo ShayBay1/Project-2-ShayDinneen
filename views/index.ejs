@@ -1,11 +1,14 @@
 <%- include('./partials/header') %>
+
 <% if (user) { %> 
 <form id="addPost" method="POST" action="/">
     <input type="text" name="link">
     <button type="submit" value="POST">POST</button>
 </form>
 
-<%}; %>
+<%} else { %>
+    <section id="notloggedin"><H1> LOG IN TO POST A CLIP! ^^^^^^^^^^</H1></section>
+    <% }; %> 
 <section id="feed">
     <br>
     <% slams.forEach(p =>{ %>
